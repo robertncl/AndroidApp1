@@ -20,6 +20,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y wget unzip
+        mkdir -p $HOME/android-sdk/cmdline-tools
         wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O cmdline-tools.zip
         unzip cmdline-tools.zip -d $HOME/android-sdk/cmdline-tools
         mkdir -p $HOME/android-sdk/cmdline-tools/latest
