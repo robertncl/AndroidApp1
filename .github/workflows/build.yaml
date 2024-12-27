@@ -9,10 +9,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4.2.0
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '9.0.x'
 
@@ -29,7 +29,7 @@ jobs:
         echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
         echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
         yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-        $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "platform-tools"
+        $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-35" "platform-tools" "build-tools;35.0.0"
 
     - name: Install Android workload
       run: dotnet workload install android
@@ -48,3 +48,4 @@ jobs:
       with:
         name: android-app
         path: ./output
+
