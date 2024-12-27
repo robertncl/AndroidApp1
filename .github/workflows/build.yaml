@@ -16,6 +16,12 @@ jobs:
       with:
         dotnet-version: '9.0.x'
 
+    - name: Install Android SDK
+      run: sudo apt-get install -y android-sdk
+
+    - name: Set up Android SDK environment variable
+      run: echo "ANDROID_SDK_ROOT=/usr/lib/android-sdk" >> $GITHUB_ENV
+
     - name: Install Android workload
       run: dotnet workload install android
 
